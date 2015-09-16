@@ -15,8 +15,8 @@ class Class_Checker_Bot:
         self.class_number = class_number
         
         # start browser
-        #self.driver = webdriver.PhantomJS('/library/python/2.7/site-packages/selenium/webdriver/phantomjs/phantomjs')
-        self.driver = webdriver.Firefox() # use firefox for testing
+        self.driver = webdriver.PhantomJS('/library/python/2.7/site-packages/selenium/webdriver/phantomjs/phantomjs')
+        #self.driver = webdriver.Firefox() # use firefox for testing
         self.driver.implicitly_wait(10)
         
         self.search_loop()
@@ -38,7 +38,7 @@ class Class_Checker_Bot:
         self.driver.find_element_by_id('SSR_CLSRCH_WRK_SSR_OPEN_ONLY$3').click()
         time.sleep(0.5)
         self.driver.find_element_by_id('SSR_CLSRCH_WRK_CATALOG_NBR$1').send_keys(self.course_number)
-        #really weird, but in phantomjs, the open class only button is deselected by default, uncomment 42 if problems
+        #really weird, but in phantomjs, the open class only button is deselected by default, uncomment next line if problems
         #self.driver.find_element_by_id('SSR_CLSRCH_WRK_SSR_OPEN_ONLY_LBL$3').click()
         self.driver.find_element_by_name('DERIVED_CLSRCH_SSR_EXPAND_COLLAPS$149$$IMG$1').click()
         self.driver.find_element_by_id('SSR_CLSRCH_WRK_CLASS_NBR$8').send_keys(self.class_number)
