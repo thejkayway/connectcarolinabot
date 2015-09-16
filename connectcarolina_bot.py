@@ -5,8 +5,8 @@ class RegistryBot:
     login_url = 'https://ccpa.unc.edu/psp/paprd/EMPLOYEE/EMPL/h/?tab=NC_REDIRECT&TargetPage=Student'
 
     def __init__(self, username, password):
-        #self.driver = webdriver.PhantomJS('/library/python/2.7/site-packages/selenium/webdriver/phantomjs/phantomjs')
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.PhantomJS('/library/python/2.7/site-packages/selenium/webdriver/phantomjs/phantomjs')
+        #self.driver = webdriver.Firefox() #firefox for visible testing
         self.driver.implicitly_wait(10)
         self.username = username
         self.password = password
@@ -22,7 +22,7 @@ class RegistryBot:
         self.driver.close()
         
     def login(self):
-        '''Logs in to ConnectCarolina with {username:password} and browses to Spring 2015 cart'''
+        '''Logs in to ConnectCarolina with {username:password} and browses to cart'''
         self.driver.get(self.login_url)
         self.driver.find_element_by_name('j_username').send_keys(self.username)
         self.driver.find_element_by_name('j_password').send_keys(self.password, Keys.RETURN)
