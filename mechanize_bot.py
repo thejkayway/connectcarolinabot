@@ -1,5 +1,6 @@
 import cookielib, mechanize, re, urllib, urllib2
-pw = 'joking55!!!'
+acc = 'testacc'
+pw = 'testpassword_for_testaccount'
 login_url = 'https://ccpa.unc.edu/psp/paprd/EMPLOYEE/EMPL/h/?tab=NC_REDIRECT&TargetPage=Student'
 alt_login_url = 'https://ccpa.unc.edu/psp/paprd/EMPLOYEE/UNC_CS/c/NC_CUSTOM_MENU.NC_PORTAL_STUDENT.GBL'
 
@@ -14,7 +15,7 @@ rsp = urllib2.urlopen(req)
 br = mechanize.Browser()
 br.set_cookiejar(cookie_jar)
 
-data = urllib.urlencode(dict(j_username='jmkay', j_password='10001'))
+data = urllib.urlencode(dict(j_username=acc, j_password=pw))
 
 page = br.open(alt_login_url, data)
 print page.read()
